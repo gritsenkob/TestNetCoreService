@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  netcoretestwebapplication1:
+    image: netcoretestwebapplication1
+    build:
+      context: .
+      dockerfile: netCoreTestWebApplication1/Dockerfile
