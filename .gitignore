@@ -247,6 +247,7 @@ _Pvt_Extensions
 paket-files/
 
 # FAKE - F# Make
+
 .fake/
 
 # JetBrains Rider
@@ -255,6 +256,10 @@ paket-files/
 
 # CodeRush
 .cr/
+
+# docker files
+docker-*
+Dockerfile
 
 # Python Tools for Visual Studio (PTVS)
 __pycache__/

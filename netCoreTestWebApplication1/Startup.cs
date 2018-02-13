@@ -33,7 +33,6 @@ namespace netCoreTestWebApplication1
             {
                 app.UseDeveloperExceptionPage();
             }
-
             app.UseMvc();
         }
     }

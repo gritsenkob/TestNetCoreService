@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.0</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>9868dd5c-63ca-4e8d-946c-59d4fc0778b5</ProjectGuid>
+    <ProjectGuid>c8c716b9-a0a7-4fe6-bf59-05186c7d336d</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
     <DockerServiceUrl>http://localhost:{ServicePort}/api/values</DockerServiceUrl>
     <DockerServiceName>netcoretestwebapplication1</DockerServiceName>
