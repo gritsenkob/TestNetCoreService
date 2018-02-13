@@ -9,20 +9,6 @@ using Newtonsoft.Json;
 
 namespace netCoreTestWebApplication1.Controllers
 {
-    public class TestInputData
-    {
-        public int TestInt { get; set; }
-
-        public decimal TestDecimal { get; set; }
-
-        public string TestString { get; set; }
-
-    }
-
-    public class TestOutputData : TestInputData
-    {
-        public DateTime ResponseDateTime { get; set; }
-    }
 
     [Route("api/[controller]")]
     public class ValuesController : Controller
