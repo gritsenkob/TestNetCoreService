@@ -12,6 +12,8 @@
   <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Nethereum.JsonRpc.RpcClient" Version="2.2.3" />
+    <PackageReference Include="Nethereum.Web3" Version="2.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
   </ItemGroup>
 

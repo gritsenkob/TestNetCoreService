@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using log4net;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Nethereum.JsonRpc;
+using Nethereum.JsonRpc.Client;
+using Nethereum.RPC.Eth;
 
 namespace netCoreTestWebApplication1.Controllers
 {
@@ -30,16 +33,29 @@ namespace netCoreTestWebApplication1.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            var client = new RpcClient(new Uri("http://10.0.75.1:8545"));
+            var ethAccounts = new EthAccounts(client);
+            var accounts = ethAccounts.SendRequestAsync().Result;
+
             Logger.Debug($"Enviroment:{Environment.MachineName}. Method:{MethodBase.GetCurrentMethod().Name}.");
             return new string[] { "value1", "value2" };
         }
 
         // GET api/values/5
         [HttpGet("{id:min(18)}")]
-        public string Get(int id)
+        public void Get(int id)
+        {
+            Logger.Debug($"Enviroment:{Environment.MachineName}. Method:{MethodBase.GetCurrentMethod().Name}. value:{id.ToString()}");
+
+        }
+        
+
+        // GET api/values/5
+        [HttpGet("{env}/wallets/{id}")]
+        public string Get(int id, string env)
         {
             Logger.Debug($"Enviroment:{Environment.MachineName}. Method:{MethodBase.GetCurrentMethod().Name}. Id:{id}");
-            return "value:";
+            return $"id:{id.ToString()}, env:{env}";
         }
 
 
