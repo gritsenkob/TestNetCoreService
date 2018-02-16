@@ -33,7 +33,7 @@ namespace netCoreTestWebApplication1.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            var client = new RpcClient(new Uri("http://10.0.75.1:8545"));
+            var client = new RpcClient(new Uri("http://172.19.0.3:8545"));
             var ethAccounts = new EthAccounts(client);
             var accounts = ethAccounts.SendRequestAsync().Result;
 

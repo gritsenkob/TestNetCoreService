@@ -11,6 +11,9 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
+using NLog;
+using NLog.Fluent;
 
 namespace netCoreTestWebApplication1
 {
@@ -18,10 +21,23 @@ namespace netCoreTestWebApplication1
     {
         public static void Main(string[] args)
         {
+            // NLog: setup the logger first to catch all errors
 
-            var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-            XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
-            BuildWebHost(args).Run();
+            var loggerFactory = new NLog.LogFactory();
+            var logger = loggerFactory.GetLogger("Main");
+            try
+            {
+                logger.Debug("init main");
+                BuildWebHost(args).Run();
+            }
+            catch (Exception e)
+            {
+                //NLog: catch setup errors
+                logger.Error(e, "Stopped program because of exception");
+                throw;
+            }
+            //var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
+            //XmlConfigurator.Configure(logRepository, new FileInfo("log4net.config"));
         }
         
         public static IWebHost BuildWebHost(string[] args) =>
@@ -35,6 +51,7 @@ namespace netCoreTestWebApplication1
                     config.AddEnvironmentVariables();
                 })
                 .UseStartup<Startup>()
+                
                 .Build();
     }
 }

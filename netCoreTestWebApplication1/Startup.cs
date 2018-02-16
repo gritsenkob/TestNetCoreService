@@ -13,7 +13,7 @@ namespace netCoreTestWebApplication1
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment env)
         {
             Configuration = configuration;
         }
